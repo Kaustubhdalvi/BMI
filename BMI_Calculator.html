@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <title>
+            Body_Mass_Index
+        </title>
+        <style>
+            html{
+                height: auto;
+                background-color: cadetblue;
+                background-image: linear-gradient(to bottom right, #c3fdff,#90caf9,#248fe0);
+            }
+
+            input{
+                text-align: center;
+                font-size: 13px;
+            }
+           
+            table,tr{
+                border: 2px solid;
+                border-style: dashed;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            ol{
+                list-style: disc;
+            }
+
+            div{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:15; text-align: justify;
+            }
+
+            h1{
+                font-size: 19;
+            }
+
+            img{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                height: 275;
+            }
+        </style>
+        <script>
+            window.onload = () => {
+	            let button = document.querySelector("#btn");
+
+	            // Function for calculating BMI
+	            button.addEventListener("click", calculateBMI);
+            };
+
+            function calculateBMI() {
+
+	            /* Getting input from user into height variable.
+	            Input is string so typecasting is necessary. */
+	            let height = parseInt(document
+			            .querySelector("#height").value);
+
+	            /* Getting input from user into weight variable.
+	            Input is string so typecasting is necessary.*/
+	            let weight = parseInt(document
+			            .querySelector("#weight").value);
+
+	            let result = document.querySelector("#result");
+
+	            // Checking the user providing a proper
+	            // value or not
+	            if (height === "" || isNaN(height))
+		            result.innerHTML = "Provide a valid Height!";
+
+	            else if (weight === "" || isNaN(weight))
+		            result.innerHTML = "Provide a valid Weight!";
+
+	            // If both input is valid, calculate the bmi
+	            else {
+
+		            // Fixing upto 2 decimal places
+		            let bmi = (weight / ((height * height)
+							/ 10000)).toFixed(2);
+
+		            // Dividing as per the bmi conditions
+		            if (bmi < 18.6) result.innerHTML =
+			            `Under Weight : <span>${bmi}</span>`;
+
+		            else if (bmi >= 18.6 && bmi < 24.9)
+			            result.innerHTML =
+				        `Normal : <span>${bmi}</span>`;
+
+		            else result.innerHTML =
+			            `Over Weight : <span>${bmi}</span>`;
+	}
+}
+        </script>
+    </head>
+    <body>
+        <div>
+            <h1>
+                BMI Introduction
+            </h1>
+            <div>
+                BMI is a measurement of a person's leanness or corpulence based on their height and weight, and is intended to quantify tissue mass. 
+                It is widely used as a general indicator of whether a person has a healthy body weight for their height. 
+                Specifically, the value obtained from the calculation of BMI is used to categorize whether a person is underweight, normal weight, 
+                overweight, or obese depending on what range the value falls between. These ranges of BMI vary based on factors such as region and age, 
+                and are sometimes further divided into subcategories such as severely underweight or very severely obese. 
+                Being overweight or underweight can have significant health effects,
+                so while BMI is an imperfect measure of healthy body weight, 
+                it is a useful indicator of whether any additional testing or action is required.
+            </div>    
+        </div>
+        <p style="text-align: center; font-size: xx-large; ">(BMI) BODY MASS INDEX CALCULATOR</p>
+        <table>
+            <tr>
+                <td>
+                    <div class="container">
+    
+                        <div style="text-align: center;">
+                         Height (in cm) <br>
+                         <input type="number" id="height">
+                        </div>
+                        <br>
+                        <div style="text-align: center;">
+                            Weight (in kg)<br>
+                            <input type="number" id="weight">
+                        </div>
+    
+                        <div id="result" style="text-align: center;">
+                            <br>
+                            <button id="btn">Compute BMI</button>
+                        </div1>
+                    </div>
+                </td>
+            </tr>
+        </table>
+            <h1>
+                Risks associated with being overweight
+            </h1>
+            Being overweight increases the risk of a number of serious diseases and health conditions. Below is a list of said risks, according to the Centers for Disease Control and Prevention (CDC):
+            <ol>
+                <li>High blood pressure</li>
+                <li>Higher levels of LDL cholesterol, which is widely considered "bad cholesterol," lower levels of HDL cholesterol, considered to be good cholesterol in moderation, and high levels of triglycerides</li>
+                <li>Type II diabetes</li>
+                <li>Coronary heart disease</li>
+                <li>Stroke</li>
+                <li>Gallbladder disease</li>
+                <li>Osteoarthritis, a type of joint disease caused by breakdown of joint cartilage</li>
+                <li>Sleep apnea and breathing problems</li>
+                <li>Certain cancers (endometrial, breast, colon, kidney, gallbladder, liver)</li>
+                <li>Mental illnesses such as clinical depression, anxiety, and others</li>
+                <li>Body pains and difficulty with certain physical functions</li>
+            </ol>
+            As can be seen from the list above, there are numerous negative, in some cases fatal, outcomes that may result from being overweight. 
+            Generally, a person should try to maintain a BMI below 25 kg/m2, but ideally should consult their doctor to determine whether or not they
+            need to make any changes to their lifestyle in order to be healthier.
+        </div>
+        <div>
+            <h1>
+                Risks associated with being underweight
+            </h1>
+            Being underweight has its own associated risks, listed below:
+            <ol>
+                <li>Malnutrition, vitamin deficiencies, anemia (lowered ability to carry blood vessels)</li>
+                <li>Osteoporosis, a disease that causes bone weakness, increasing the risk of breaking a bone</li>
+                <li>A decrease in immune function</li>
+                <li>Growth and development issues, particularly in children and teenagers</li>
+                <li>Possible reproductive issues for women due to hormonal imbalances that can disrupt the menstrual cycle. 
+                Underweight women also have a higher chance of miscarriage in the first trimester</li>
+                <li>Potential complications as a result of surgery</li>
+                <li>Generally, an increased risk of mortality compared to those with a healthy BMI</li>
+            </ol>
+            In some cases, being underweight can be a sign of some underlying condition or disease such as anorexia nervosa, which has its own risks. 
+            Consult your doctor if you think you or someone you know is underweight, particularly if the reason for being underweight does not seem obvious.
+        </div>
+    </body>
+</html>
+    
